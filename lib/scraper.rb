@@ -17,7 +17,7 @@ class Scraper
         :location => person.css("div.card-text-container p.student-location").text, 
         :profile_url => person.css("a")[0]['href']} 
     end
-    
+    student_index_array
     binding.pry
   end
 

@@ -22,15 +22,28 @@ class Scraper
   end
 
   def self.scrape_profile_page(profile_url)
-    student_info = {
-      :twitter => Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a")[0]['href'],
-      :linkedin => Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a")[1]['href'],
-      :github => Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a")[2]['href'],
-      :blog => Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a")[3]['href'],
-      :profile_quote => Nokogiri::HTML(open(profile_url)).css("div.vitals-text-container div.profile-quote").text,
-      :bio => Nokogiri::HTML(open(profile_url)).css("div.description-holder p").text.strip}
-      binding.pry
+    
+    student_info = {}
+    
+    Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a"). each do |site|
+      if site['href'].include?'twitter'
+        student_info[:twitter] = site['href']
+      elsif site['href'].include?'linkedin'
+        student_info[:linkedin] = site['href']
+      elsif site['href'].include?'github'
+        student_info[:github] = site['href']
+      else 
+        student_info[:blog] = site['href']
+      end
+    end
+    
+    student_info[:profile_quote] = Nokogiri::HTML(open(profile_url)).css("div.vitals-text-container div.profile-quote").text
+    student_info[:bio] = Nokogiri::HTML(open(profile_url)).css("div.description-holder p").text.strip
   end
 
 end
 
+      # :twitter => Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a")[0]['href'],
+      # :linkedin => Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a")[1]['href'],
+      # :github => Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a")[2]['href'],
+      # :blog => Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a")[3]['href'],

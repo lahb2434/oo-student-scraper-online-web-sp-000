@@ -39,6 +39,8 @@ class Scraper
     
     student_info[:profile_quote] = Nokogiri::HTML(open(profile_url)).css("div.vitals-text-container div.profile-quote").text
     student_info[:bio] = Nokogiri::HTML(open(profile_url)).css("div.description-holder p").text.strip
+    
+    binding.pry
   end
 
 end

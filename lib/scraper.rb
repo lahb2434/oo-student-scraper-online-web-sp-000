@@ -24,11 +24,11 @@ class Scraper
   def self.scrape_profile_page(profile_url)
     student_info = {
       :twitter =>
-:linkedin =>
-:github=>
-:blog =>
-:profile_quote =>
-:bio =>}
+      :linkedin =>
+      :github=>
+      :blog =>
+      :profile_quote =>
+      :bio =>}
     Nokogiri::HTML(open(profile_url))
     binding.pry
 # :twitter =>

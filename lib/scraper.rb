@@ -12,7 +12,7 @@ class Scraper
   def self.scrape_index_page(index_url)
     student_index_array = []
     Nokogiri::HTML(open(index_url)).css("div.student-card").each do |person|
-      student_index_array << {
+      student_index_array << {name: person.css("div.card-text-container h4.student-name").text, 
     end
     
     binding.pry

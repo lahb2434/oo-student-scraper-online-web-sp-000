@@ -4,6 +4,7 @@ require 'pry'
 # student body: student.css("div.student-card").first
 #name: person.css("div.card-text-container h4.student-name").text
 #location: person.css("div.card-text-container p.student-location").text
+#url: person.css("a")[0]['href']
 
 
 class Scraper

@@ -4,6 +4,7 @@ require 'pry'
 # student body: student.css("div.student-card").first
 #name: person.css("div.card-text-container h4.student-name").text
 
+
 class Scraper
 
   def self.scrape_index_page(index_url)

@@ -23,10 +23,10 @@ class Scraper
 
   def self.scrape_profile_page(profile_url)
     student_info = {
-      :twitter =>
-      :linkedin =>
-      :github=>
-      :blog =>
+      :twitter => Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a")[0]['href']
+      :linkedin => Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a")[1]['href']
+      :github=> Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a")[2]['href']
+      :blog => Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a")[3]['href']
       :profile_quote =>
       :bio => Nokogiri::HTML(open(profile_url)).css("div.description-holderp").text.strip}
     Nokogiri::HTML(open(profile_url))

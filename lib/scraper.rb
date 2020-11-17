@@ -28,7 +28,7 @@ class Scraper
       :github=>
       :blog =>
       :profile_quote =>
-      :bio =>}
+      :bio => Nokogiri::HTML}
     Nokogiri::HTML(open(profile_url))
     binding.pry
 # :twitter =>

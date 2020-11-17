@@ -28,7 +28,7 @@ class Scraper
       :github=>
       :blog =>
       :profile_quote =>
-      :bio => Nokogiri::HTML}
+      :bio => Nokogiri::HTML(open(profile_url)).css("div.description-holderp").text.strip}
     Nokogiri::HTML(open(profile_url))
     binding.pry
 # :twitter =>

@@ -25,7 +25,7 @@ class Scraper
     student_info = {
       :twitter => Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a")[0]['href'],
       :linkedin => Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a")[1]['href'],
-      :github=> Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a")[2]['href'],
+      :github => Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a")[2]['href'],
       :blog => Nokogiri::HTML(open(profile_url)).css("div.social-icon-container a")[3]['href'],
       :profile_quote => Nokogiri::HTML(open(profile_url)).css("div.vitals-text-container div.profile-quote").text,
       :bio => Nokogiri::HTML(open(profile_url)).css("div.description-holder p").text.strip}

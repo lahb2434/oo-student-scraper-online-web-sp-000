@@ -2,7 +2,7 @@ require 'open-uri'
 require 'pry'
 
 # student body: student.css("div.student-card").first
-
+#name: person.css("div.card-text-container h4.student-name").text
 
 class Scraper
 

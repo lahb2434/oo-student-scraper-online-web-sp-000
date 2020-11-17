@@ -7,7 +7,9 @@ class Student
   @@all = []
 
   def initialize(student_hash)
-    
+    student_hash.each do |key, value|
+      self.send("#{key}=", value)
+    end
     binding.pry
   end
 
@@ -24,3 +26,4 @@ class Student
   end
 end
 
+# self.class.send(:attr_accessor, "#{key}")
